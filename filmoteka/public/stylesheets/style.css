@@ -1,0 +1,58 @@
+body {
+  width: 100%;
+  margin: 0;
+}
+#top {
+  width: 100%;
+  margin: 0;
+}
+
+#navbar {
+  background-color: aquamarine;
+  width: 100%;
+  margin: 0;
+  height: 50px;
+}
+
+#menu {
+  width: 100%;
+  margin: 0;
+  background-color: aqua;
+  text-align: center;
+  border: 1px solid;
+  height: 40px;
+}
+
+#menu-item {
+  border-right: 1px solid;
+}
+
+#menu-item:hover {
+  background-color: blue;
+}
+
+#menu-item-content {
+  width: 100%;
+  height: 100%;
+  padding-top: 5px;
+}
+
+a {
+  color: black !important;
+}
+
+a:link {
+  text-decoration: none !important;
+}
+
+a:visited {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+a:active {
+  text-decoration: none !important;
+}
