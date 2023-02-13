@@ -5,42 +5,80 @@
         Filmoteka
     </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
-    <div id="top">
-         <div id="navbar" class="row">
-            <div class="col-4">
-                Zdjecie
-            </div>
-            <div class="col-1 offset-6">
-                Profil
-            </div>
-         </div>
-        <div id="menu" class="row">
-            <div id="menu-item" class="col">
-                <a href="/aktualnosci"><div id="menu-item-content">
-                    Aktualności
-                </div></a>
-            </div>
-            <div id="menu-item" class="col">
-                <a href="/filmy"><div id="menu-item-content">
-                    Filmy
-                </div></a>
-            </div>
-            <div id="menu-item" class="col">
-                <a href="/top10"><div id="menu-item-content">
-                    Top 10
-                </div></a>
-            </div>
-            <div id="menu-item" class="col">
-                <a href="/profil"><div id="menu-item-content">
-                    Twój profil
-                </div></a>
+<div id="top">
+    <div id="navbar" class="row">
+        <div id="navbar-logo" class="col-4">
+            <a href="/">
+                FILMOTEKA
+            </a>
+        </div>
+        <div id="navbar-profile" class="col-2 offset-6">
+            <div class="row">
+                <div class="col-3"><%=userLogin%></div>
+                <div class="col-9">
+                    <form action="/logout" method="POST">
+                        <button type="submit" class="fabutton">
+                            <i class="bi bi-box-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+    <div id="menu" class="row">
+        <div id="menu-item" class="col">
+            <a href="/aktualnosci"><div id="menu-item-content">
+                    Aktualności
+                </div></a>
+        </div>
+        <div id="menu-item" class="col">
+            <a href="/filmy"><div id="menu-item-content">
+                    Filmy
+                </div></a>
+        </div>
+        <div id="menu-item" class="col">
+            <a href="/top10"><div id="menu-item-content">
+                    Top 10
+                </div></a>
+        </div>
+        <div id="menu-item" class="col">
+            <a href="/profil"><div id="menu-item-content">
+                    Twój profil
+                </div></a>
+        </div>
+    </div>
+</div>
+
+
+<div id="content" class="row">
+    <div class="col-12">
+        <h1 id="articles-header">Baza filmów</h1>
+
+        <div id="movies">
+
+            <% movies.forEach((row) => { %>
+            <a href="/film/<%=row.IdFilmu%>">
+                <div class="movie row">
+                    <div class="col-2">
+                        <img id="movie-img" src="<%=row.Zdjecie%>">
+                    </div>
+                    <div class="col-10">
+                        <h4><%=row.Tytul %></h4>
+                        <br/>
+                        <%=row.Opis %>
+                    </div>
+                </div>
+            </a>
+            <% }); %>
+
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
