@@ -227,3 +227,17 @@ a:active {
   border: none;
   color: white;
 }
+
+#user-data {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding-left: 45%;
+}
+
+#user-ratings {
+  padding-left: 50px;
+}
+
+#user-ratings h2 {
+  margin-bottom: 50px;
+}

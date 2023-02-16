@@ -65,19 +65,29 @@
         <%=movie.Opis%>
     </div>
     <div id="movie-page-description" class="col-4 offset-1">
-        <h4>Ocena społeczności: <%=movie.Ocena%></h4>
+        <h4>Ocena krytyków: <%=movie.Ocena%>/5</h4>
 
         <h5>Twoja ocena:</h5>
         <div class="rating">
-            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+            <input type="radio" name="rating" value="5" id="5" onclick="starClicked('5');"><label for="5">☆</label>
+            <input type="radio" name="rating" value="4" id="4" onclick="starClicked('4');"><label for="4">☆</label>
+            <input type="radio" name="rating" value="3" id="3" onclick="starClicked('3');"><label for="3">☆</label>
+            <input type="radio" name="rating" value="2" id="2" onclick="starClicked('2');"><label for="2">☆</label>
+            <input type="radio" name="rating" value="1" id="1" onclick="starClicked('1');"><label for="1">☆</label>
         </div>
 
     </div>
 </div>
+
+<script>
+    function starClicked(number) {
+        fetch("/film/rate/<%=userId%>/<%=movie.IdFilmu%>/"+number,{method:'POST'});
+    }
+
+    if('<%=rating%>'!= 0) {
+        document.getElementById("<%=rating%>").click();
+    }
+</script>
 
 </body>
 </html>
